@@ -1,0 +1,60 @@
+class Person:
+    def __init__(self, name, age, city):
+        self.name = name
+        self.age = age
+        self.city = city
+
+    def show_info(self):
+        print(f"{self.name}, {self.age} років, м. {self.city}")
+
+class Car:
+    def __init__(self, brand, model, year, color):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.color = color
+
+    def show_details(self):
+        print(f"{self.brand} {self.model} ({self.year}), колір: {self.color}")
+
+    def repaint(self, new_color):
+        old_color = self.color
+        self.color = new_color
+        print(f"Авто перекрашено з {old_color} на {new_color}")
+
+class BankAccount:
+    def __init__(self, owner_name, account_number, balance):
+        self.owner_name = owner_name
+        self.account_number = account_number
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Поповнено на {amount} грн. Баланс: {self.balance} грн.")
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"Знято {amount} грн. Залишок: {self.balance} грн.")
+        else:
+            print(f"На Вашому рахунку {self.balance}. Ви не можете зняти {amount} з Вашої картки!")
+
+    def check_balance(self):
+        print(f"Баланс на рахунку: {self.balance} грн.")
+
+print("=== Людина ===")
+person1 = Person("Іван", 30, "Київ")
+person1.show_info()
+
+print("\n=== Автомобіль ===")
+car1 = Car("Toyota", "Corolla", 2015, "чорний")
+car1.show_details()
+car1.repaint("білий")
+car1.show_details()
+
+print("\n=== Банківський рахунок ===")
+account1 = BankAccount("Олег", "UA123456", 1000)
+account1.check_balance()
+account1.deposit(500)
+account1.withdraw(200)
+account1.withdraw(2000)
